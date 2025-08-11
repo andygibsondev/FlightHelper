@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { 
   calculateNavigation, 
   validateInputs, 
@@ -50,7 +51,7 @@ export default function FlightNavigationCalculator() {
   };
 
   const handleBackToParameters = () => {
-    setShowResults(false);
+    setShowResults(false); 
   };
 
   return (
@@ -58,6 +59,15 @@ export default function FlightNavigationCalculator() {
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8">
+          <div className="mb-4">
+            <Link 
+              href="/"
+              className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium transition-colors duration-200"
+            >
+              <span>←</span>
+              Return to Dashboard
+            </Link>
+          </div>
           <h1 className="text-4xl font-bold text-gray-900 mb-2">
             Flight Navigation Calculator
           </h1>
@@ -193,7 +203,7 @@ export default function FlightNavigationCalculator() {
           /* Results View */
           <div className="max-w-3xl mx-auto">
             {/* Back Button */}
-            <div className="mb-6">
+            <div className="mb-6 flex justify-between items-center">
               <button
                 onClick={handleBackToParameters}
                 className="flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium transition-colors duration-200"
@@ -201,6 +211,13 @@ export default function FlightNavigationCalculator() {
                 <span>←</span>
                 Back to Parameters
               </button>
+              <Link 
+                href="/"
+                className="flex items-center gap-2 text-gray-600 hover:text-gray-700 font-medium transition-colors duration-200"
+              >
+                <span>🏠</span>
+                Dashboard
+              </Link>
             </div>
             
             <div className="bg-white rounded-xl shadow-lg p-8">
