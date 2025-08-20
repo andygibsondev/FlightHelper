@@ -66,7 +66,16 @@ export default function FlightNavigationCalculator() {
                 className="flex items-center gap-2 text-white hover:text-blue-300 font-medium transition-colors duration-200 touch-manipulation"
               >
                 <span className="text-lg">←</span>
-                <span className="text-xl font-bold">✈️ FlightNav</span>
+                <img
+                  src="/icons/icon.svg"
+                  alt="FlightNav Logo"
+                  width={28}
+                  height={28}
+                  className="inline-block align-middle"
+                  aria-hidden="true"
+                  draggable="false"
+                />
+                <span className="text-xl font-bold">FlightNav</span>
               </Link>
             </div>
             <div className="flex items-center space-x-4">

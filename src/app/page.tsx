@@ -10,7 +10,18 @@ export default function Dashboard() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
-              <span className="text-white text-xl font-bold">✈️ FlightNav</span>
+              <span className="flex items-center space-x-2">
+                <img
+                  src="/icons/icon.svg"
+                  alt="FlightNav Logo"
+                  width={28}
+                  height={28}
+                  className="inline-block align-middle"
+                  aria-hidden="true"
+                  draggable="false"
+                />
+                <span className="text-white text-xl font-bold">FlightNav</span>
+              </span>
             </div>
             <div className="flex items-center space-x-4">
               <span className="text-white/80 text-sm">v1.0.0</span>
