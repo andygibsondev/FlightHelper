@@ -4,9 +4,9 @@ import Link from 'next/link';
 
 export default function Dashboard() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 scrollable">
       {/* Navigation */}
-      <nav className="bg-white/10 backdrop-blur-sm border-b border-white/20">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/10 backdrop-blur-sm border-b border-white/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
@@ -20,51 +20,35 @@ export default function Dashboard() {
       </nav>
 
       {/* Hero Section */}
-      <div className="relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+      <div className="relative overflow-hidden pt-16">
+        <div className="max-w-7xl mx-auto mobile-padding px-4 sm:px-6 lg:px-8 py-12 sm:py-24">
           <div className="text-center">
-            <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
+            <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold text-white mb-4 sm:mb-6">
               Flight Navigation
               <span className="block text-blue-300">Dashboard</span>
             </h1>
-            <p className="text-xl md:text-2xl text-blue-100 mb-12 max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl md:text-2xl text-blue-100 mb-8 sm:mb-12 max-w-3xl mx-auto px-2">
               Professional aviation calculation tools for pilots, flight instructors, and aviation enthusiasts
             </p>
-            
-            {/* Quick Stats */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 max-w-4xl mx-auto">
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                <div className="text-3xl font-bold text-blue-300 mb-2">99.9%</div>
-                <div className="text-white/80">Calculation Accuracy</div>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                <div className="text-3xl font-bold text-green-300 mb-2">Real-time</div>
-                <div className="text-white/80">Results</div>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                <div className="text-3xl font-bold text-purple-300 mb-2">Mobile</div>
-                <div className="text-white/80">Optimized</div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
 
       {/* Tools Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+      <div className="max-w-7xl mx-auto mobile-padding px-4 sm:px-6 lg:px-8 py-8 sm:py-16">
+        <div className="text-center mb-8 sm:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">
             Navigation Tools
           </h2>
-          <p className="text-xl text-blue-100 max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl text-blue-100 max-w-2xl mx-auto px-2">
             Choose from our suite of professional aviation calculation tools
           </p>
         </div>
 
         {/* Tool Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
           {/* Wind Triangle Calculator */}
-          <div className="group bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:bg-white/15 transition-all duration-300 hover:scale-105">
+          <div className="group bg-white/10 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-white/20 hover:bg-white/15 transition-all duration-300 hover:scale-105">
             <div className="mb-6">
               <div className="w-16 h-16 bg-blue-500 rounded-xl flex items-center justify-center mb-4 group-hover:bg-blue-400 transition-colors duration-300">
                 <span className="text-2xl">🧭</span>
@@ -96,14 +80,14 @@ export default function Dashboard() {
 
             <Link 
               href="/calculator"
-              className="block w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-6 rounded-xl text-center transition-colors duration-200 group-hover:bg-blue-500"
+              className="block w-full bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-semibold py-4 px-6 rounded-xl text-center transition-colors duration-200 group-hover:bg-blue-500 touch-manipulation"
             >
               Open Calculator
             </Link>
           </div>
 
           {/* Coming Soon: Distance Calculator */}
-          <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 opacity-75">
+          <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-white/10 opacity-75">
             <div className="mb-6">
               <div className="w-16 h-16 bg-gray-500 rounded-xl flex items-center justify-center mb-4">
                 <span className="text-2xl">📏</span>
@@ -135,7 +119,7 @@ export default function Dashboard() {
           </div>
 
           {/* Coming Soon: Weight & Balance */}
-          <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 opacity-75">
+          <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-white/10 opacity-75">
             <div className="mb-6">
               <div className="w-16 h-16 bg-gray-500 rounded-xl flex items-center justify-center mb-4">
                 <span className="text-2xl">⚖️</span>
