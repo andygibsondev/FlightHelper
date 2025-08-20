@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import InstallPrompt from "../components/InstallPrompt";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -54,11 +55,31 @@ export default function RootLayout({
         <meta name="format-detection" content="telephone=no" />
         <link rel="icon" type="image/svg+xml" href="/icons/icon.svg" />
         <link rel="shortcut icon" href="/icons/icon.svg" />
+        
+        {/* Service Worker Registration */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              if ('serviceWorker' in navigator) {
+                window.addEventListener('load', function() {
+                  navigator.serviceWorker.register('/sw.js')
+                    .then(function(registration) {
+                      console.log('SW registered: ', registration);
+                    })
+                    .catch(function(registrationError) {
+                      console.log('SW registration failed: ', registrationError);
+                    });
+                });
+              }
+            `,
+          }}
+        />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased touch-manipulation select-none`}
       >
         {children}
+        <InstallPrompt />
       </body>
     </html>
   );
