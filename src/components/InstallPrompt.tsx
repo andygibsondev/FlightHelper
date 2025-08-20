@@ -7,6 +7,13 @@ interface BeforeInstallPromptEvent extends Event {
   userChoice: Promise<{ outcome: 'accepted' | 'dismissed' }>;
 }
 
+// Extend Navigator interface for iOS standalone detection
+declare global {
+  interface Navigator {
+    standalone?: boolean;
+  }
+}
+
 export default function InstallPrompt() {
   const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null);
   const [showPrompt, setShowPrompt] = useState(false);
@@ -20,7 +27,7 @@ export default function InstallPrompt() {
 
     // Check if app is already installed (running in standalone mode)
     const standalone = window.matchMedia('(display-mode: standalone)').matches || 
-                      (window.navigator as any).standalone === true;
+                      window.navigator.standalone === true;
     setIsStandalone(standalone);
 
     // Listen for the beforeinstallprompt event (Android/Chrome)
