@@ -1,0 +1,61 @@
+{
+  "name": "FlightNav - Professional Aviation Tools",
+  "short_name": "FlightNav",
+  "description": "Professional aviation calculation tools including wind triangle calculator, distance calculator, and weight & balance tools for pilots and aviation professionals",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1f2937",
+  "orientation": "portrait",
+  "scope": "/",
+  "categories": ["productivity", "utilities", "navigation"],
+  "lang": "en",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Flight Calculator",
+      "short_name": "Calculator",
+      "description": "Quick access to flight calculation tools",
+      "url": "/calculator",
+      "icons": [{ "src": "/icons/icon-96x96.png", "sizes": "96x96" }]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshots/desktop-home.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "FlightNav desktop home screen"
+    },
+    {
+      "src": "/screenshots/mobile-calculator.png",
+      "sizes": "390x844",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "FlightNav mobile calculator"
+    }
+  ],
+  "prefer_related_applications": false,
+  "related_applications": []
+}
