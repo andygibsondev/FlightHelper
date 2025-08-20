@@ -19,8 +19,15 @@ export default function InstallPrompt() {
   const [showPrompt, setShowPrompt] = useState(false);
   const [isIOS, setIsIOS] = useState(false);
   const [isStandalone, setIsStandalone] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
+    // Mark component as mounted (client-side only)
+    setIsMounted(true);
+
+    // Ensure we're running in the browser
+    if (typeof window === 'undefined') return;
+
     // Check if running on iOS
     const iOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
     setIsIOS(iOS);
@@ -73,11 +80,18 @@ export default function InstallPrompt() {
   const handleDismiss = () => {
     setShowPrompt(false);
     // Don't show again for this session
-    sessionStorage.setItem('installPromptDismissed', 'true');
+    if (typeof window !== 'undefined') {
+      sessionStorage.setItem('installPromptDismissed', 'true');
+    }
   };
 
+  // Don't render anything during SSR
+  if (!isMounted) {
+    return null;
+  }
+
   // Don't show if already dismissed this session or if already installed
-  if (isStandalone || sessionStorage.getItem('installPromptDismissed')) {
+  if (isStandalone || (typeof window !== 'undefined' && sessionStorage.getItem('installPromptDismissed'))) {
     return null;
   }
 
